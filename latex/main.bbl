@@ -1,0 +1,10 @@
+\begin{thebibliography}{1}
+\expandafter\ifx\csname fonteauteurs\endcsname\relax
+\def\fonteauteurs{\scshape}\fi
+
+\bibitem{exemple2024}
+Prénom \bgroup\fonteauteurs\bgroup Auteur\egroup\egroup{} :
+\newblock Titre exemple.
+\newblock {\em Nom du journal}, 1(1)\string:\penalty500\relax 1--10, 2024.
+
+\end{thebibliography}

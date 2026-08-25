@@ -1,0 +1,84 @@
+\chapter{Introduction}
+\label{chap:introduction}
+
+\section{Contexte général}
+
+Les marchés de prédiction ont connu une croissance spectaculaire ces dernières années, portés par l'émergence de plateformes décentralisées permettant à quiconque de parier sur l'issue d'événements futurs -- résultats électoraux, performances sportives, évolutions technologiques ou événements géopolitiques. Contrairement aux marchés financiers traditionnels où les actifs reflètent des flux économiques tangibles, la valeur d'un contrat prédictif repose sur la croyance collective quant à l'arrivée d'un événement spécifique. Cette singularité en fait un terrain d'observation privilégié pour étudier l'agrégation d'informations distribuées et la dynamique comportementale des participants.
+
+Au sein de cet écosystème, Polymarket s'est imposée comme la principale plateforme de prédiction décentralisée sur la blockchain Polygon, avec plus de 2 847 marchés actifs et un volume de transactions significatif. Chaque échange y est enregistré de manière immuable, offrant une traçabilité des comportements des traders bien supérieure à celle offerte par les marchés traditionnels.
+
+\section{Contexte spécifique : les "Smart Money"}
+
+Dans tout marché, une fraction réduite mais influente des acteurs -- les \textit{Smart Money} -- détient une information privilégiée, une expertise métier supérieure ou une capacité d'analyse qui lui permet d'obtenir systématiquement des rendements anormalement élevés. La détection de ces acteurs constitue un enjeu à la fois académique et opérationnel : comprendre leurs stratégies éclaire la formation des prix et permet de modéliser plus finement les dynamiques d'information sur les marchés prédictifs.
+
+Cependant, l'identification des Smart Money sur Polymarket soulève des défis spécifiques :
+
+\begin{itemize}
+  \item \textbf{Anonymat} : les adresses blockchain ne révèlent pas directement l'identité des traders ;
+  \item \textbf{Hétérogénéité comportementale} : les stratégies varient fortement d'un trader à l'autre ;
+  \item \textbf{Densité des données} : des millions de transactions doivent être traitées en temps quasi réel ;
+  \item \textbf{Déséquilibre des classes} : les vrais Smart Money sont statistiquement rares ;
+  \item \textbf{Coordination} : certains acteurs peuvent opérer de manière concertée, rendant l'analyse individuelle insuffisante.
+\end{itemize}
+
+\section{Problématique}
+
+La problématique centrale de ce mémoire s'exprime ainsi :
+
+\medskip
+\noindent\textit{Comment détecter de manière fiable et reproductible les portefeuilles de \og Smart Money \fg{} sur la plateforme Polymarket, en exploitant les données on-chain, et en mobilisant des techniques de machine learning adaptées aux spécificités des marchés de prédiction blockchain ?}
+\medskip
+
+Cette question se décline en trois sous-questions complémentaires :
+
+\begin{enumerate}
+  \item Quelles caractéristiques comportementales (performance historique, réseau de transactions, volumes horodatés) différencient les Smart Money des traders ordinaires sur Polymarket ?
+  \item Quelles combinaisons d'algorithmes de clustering, de classification et de détection d'anomalies permettent d'identifier ces acteurs avec une précision suffisante pour être exploitable ?
+  \item Dans quelle mesure la détection des Smart Money enrichit-elle la compréhension de la dynamique des prix sur les marchés de prédiction décentralisés ?
+\end{enumerate}
+
+\section{Objectifs}
+
+Les objectifs de ce travail se décomposent comme suit :
+
+\begin{itemize}
+  \item \textbf{Objectif principal} : concevoir et expérimenter un pipeline de détection de Smart Money sur Polymarket, reposant sur des données provenant du projet \texttt{warproxxx/poly\_data}.
+  \item \textbf{Objectifs spécifiques} :
+  \begin{enumerate}
+    \item Ingérer et nettoyer les données de transactions on-chain issues de l'API CLOB et de l'indexeur HyperSync ;
+    \item Construire un jeu de caractéristiques (\textit{features}) multi-dimensionnel : rendements (PnL), volatilité, Sharpe ratio, centralité dans le réseau de wallets, régularité temporelle ;
+    \item Appliquer des algorithmes de machine learning -- K-Means, DBSCAN, Isolation Forest, détection de motifs synchrones -- pour identifier les clusters anormaux et les wallets à haute performance ;
+    \item Valider la méthode sur un ensemble de traders annotés ou via des métriques de stabilité ;
+    \item Déployer un tableau de bord interactif (Streamlit) permettant d'explorer les résultats en temps réel.
+  \end{enumerate}
+\end{itemize}
+
+\section{Méthodologie}
+
+Ce mémoire adopte une méthodologie mixte, combinant ingénierie logicielle et science des données. La démarche comprend cinq phases principales :
+
+\begin{enumerate}
+  \item \textbf{Revue de littérature} (voir chapitre~\ref{chap:etat-art}) : recensement des travaux sur les marchés de prédiction, les \textit{smart traders} en finance, l'analyse de portefeuilles blockchain et la détection d'anomalies comportementales ;
+  \item \textbf{Collecte et préparation des données} : intégration du pipeline \texttt{warproxxx/poly\_data} avec une couche de validation qualité (completude vérifiée à hauteur de 99,7~\%) ;
+  \item \textbf{Feature engineering} : conception d'indicateurs de performance (PnL, win rate, Sharpe ratio), de métriques réseau (centralité, clustering coefficient) et de features temporelles ;
+  \item \textbf{Modélisation} : clustering (K-Means, DBSCAN), isolation forest, analyse de motifs synchrones sur 2 847+ marchés ;
+  \item \textbf{Évaluation et interprétation} : comparaison quantitative vs baseline, analyse des résultats et discussion des limites ;
+  \item \textbf{Industrialisation} : conteneurisation Docker, orchestration, tableau de bord interactif.
+\end{enumerate}
+
+Les outils retenus -- Python (Pandas, Polars), DuckDB, Scikit-learn, PyTorch, XGBoost, NetworkX, Streamlit -- garantissent la reproductibilité et la scalabilité du pipeline.
+
+\section{Plan du mémoire}
+
+Ce document est structuré en six chapitres :
+
+\begin{itemize}
+  \item \textbf{Chapitre 1 -- Introduction} : contexte, problématique, objectifs et plan du document ;
+  \item \textbf{Chapitre 2 -- État de l'art} : cadrage théorique des marchés de prédiction, revue des approches de détection de Smart Money en finance et en crypto, positionnement du travail ;
+  \item \textbf{Chapitre 3 -- Approche proposée} : description détaillée du pipeline, choix des modèles et justification des décisions techniques ;
+  \item \textbf{Chapitre 4 -- Résultats} : présentation des expériences, métriques d'évaluation et analyses quantitatives ;
+  \item \textbf{Chapitre 5 -- Discussion} : interprétation des résultats, limites identifiées et perspectives d'amélioration ;
+  \item \textbf{Chapitre 6 -- Conclusion} : synthèse des contributions et pistes de travaux futurs.
+\end{itemize}
+
+\end{document}

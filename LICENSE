@@ -1,0 +1,87 @@
+MIT License
+
+Copyright (c) 2026 Bachelor 3 AI & Big Data Project
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+### Additional Third-Party Licenses
+
+This project uses several third-party libraries and components. Please refer to their respective licenses:
+
+1. **warproxxx/poly_data** - Licensed under GPL-3.0
+   - Repository: https://github.com/warproxxx/poly_data
+   - License: https://github.com/warproxxx/poly_data/blob/main/LICENSE
+
+2. **Streamlit** - Licensed under Apache License 2.0
+   - Website: https://streamlit.io/
+   - License: https://streamlit.io/license
+
+3. **DuckDB** - Licensed under MIT License
+   - Website: https://duckdb.org/
+   - License: https://github.com/duckdb/duckdb/blob/main/LICENSE
+
+4. **Polars** - Licensed under MIT License
+   - Website: https://pola.rs/
+   - License: https://github.com/pola-rs/polars/blob/master/LICENSE
+
+5. **XGBoost** - Licensed under Apache License 2.0
+   - Website: https://xgboost.ai/
+   - License: https://github.com/dmlc/xgboost/blob/master/LICENSE
+
+6. **NetworkX** - Licensed under BSD 3-Clause License
+   - Website: https://networkx.org/
+   - License: https://networkx.org/documentation/stable/license.html
+
+7. **Plotly** - Licensed under MIT License
+   - Website: https://plotly.com/
+   - License: https://github.com/plotly/plotly.js/blob/master/LICENSE
+
+8. **Web3.py** - Licensed under MIT License
+   - Website: https://web3py.readthedocs.io/
+   - License: https://github.com/ethereum/web3.py/blob/master/LICENSE
+
+### Data Usage Terms
+
+This project uses data from Polymarket and other sources. Please ensure compliance with:
+
+1. **Polymarket Terms of Service** - https://polymarket.com/terms
+2. **Polymarket Privacy Policy** - https://polymarket.com/privacy
+3. **Blockchain Data Terms** - Ensure compliance with blockchain data usage policies
+
+### Academic Usage
+
+This project is designed for academic research purposes. When using this work in academic publications, please cite:
+
+```
+Bachelor 3 AI & Big Data Project. (2026). Polymarket Smart Money Detection System. 
+Version 1.0.0. https://github.com/username/polymarket-smart-money-detection
+```
+
+### Disclaimer
+
+This software is provided for educational and research purposes only. It is not intended for 
+financial trading advice or actual trading use. The authors are not responsible for any 
+financial losses or damages resulting from the use of this software.
+
+### Contributing
+
+By contributing to this project, you agree that your contributions will be licensed 
+under the MIT License.

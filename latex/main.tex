@@ -1,0 +1,118 @@
+\documentclass[12pt,a4paper,openright]{book}
+
+% --- Packages ---------------------------------------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{listings}      % optionnel : code
+\usepackage{subcaption}     % optionnel : sous-figures
+\usepackage{appendix}       % pour les annexes
+\usepackage[nottoc]{tocbibind} % ajoute la biblio et les annexes à la TOC
+\usepackage{bookmark}       % TOC PDF propre et silencieux
+
+% --- Liens PDF ------------------------------------------------
+\hypersetup{
+  colorlinks = true,
+  linkcolor  = blue!70!black,
+  urlcolor   = blue!60!black,
+  citecolor  = blue!50!black,
+}
+
+% --- Marges ----------------------------------------------------
+\geometry{
+  left      = 2.5cm,
+  right     = 2.5cm,
+  top       = 2.5cm,
+  bottom    = 2.5cm,
+}
+
+% --- Métadonnées -----------------------------------------------
+\title{Titre du mémoire}
+\author{Prénom Nom}
+\date{\today}
+
+% ================================================================
+\begin{document}
+% ================================================================
+
+\frontmatter           % numérotation romaine, pas de chapitres
+
+\maketitle
+\thispagestyle{empty}
+\cleardoublepage
+
+% -- Résumé / Abstract (optionnel) ------------------------------
+\chapter*{Résumé}
+\addcontentsline{toc}{chapter}{Résumé}
+Écrire ici le résumé du mémoire.
+
+\vspace{1cm}
+\noindent\textbf{Mots-clés :} mot1, mot2, mot3
+
+\cleardoublepage
+
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+Write the abstract here.
+
+\vspace{1cm}
+\noindent\textbf{Keywords:} keyword1, keyword2, keyword3
+
+\cleardoublepage
+
+% -- Remerciements (optionnel) ----------------------------------
+\chapter*{Remerciements}
+\addcontentsline{toc}{chapter}{Remerciements}
+Exprimer ici vos remerciements.
+
+\cleardoublepage
+
+% -- Table des matières -----------------------------------------
+\tableofcontents
+\cleardoublepage
+
+\mainmatter            % numérotation arabes, chapitres comptés
+
+% ================================================================
+% Corps du mémoire
+% ================================================================
+
+\input{chapters/01-introduction}
+\input{chapters/02-etat-art}
+\input{chapters/03-approche}
+\input{chapters/04-resultats}
+\input{chapters/05-discussion}
+\input{chapters/06-conclusion}
+
+% ================================================================
+% Annexes
+% ================================================================
+\appendix
+\renewcommand{\thechapter}{A}
+\input{chapters/annexe-a}
+% \renewcommand{\thechapter}{B}
+% \input{chapters/annexe-b}
+
+% ================================================================
+% Bibliographie
+% ================================================================
+\backmatter
+\bibliographystyle{plain-fr}   % ou plain, unsrt, ieeetr...
+\renewcommand{\bibname}{Bibliographie}
+\bibliography{references/biblio}
+
+% ================================================================
+% Liste des figures / tableaux (optionnel, après compilation)
+% ================================================================
+% \listoffigures
+% \listoftables
+
+\end{document}
