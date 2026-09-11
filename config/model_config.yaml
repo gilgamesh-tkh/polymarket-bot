@@ -1,0 +1,273 @@
+# Machine Learning Model Configuration
+
+# Clustering models configuration
+clustering:
+  kmeans:
+    n_clusters: 5
+    random_state: 42
+    max_iter: 300
+    n_init: 10
+    algorithm: "auto"
+    tol: 1e-4
+    verbose: 0
+    
+  dbscan:
+    eps: 0.5
+    min_samples: 10
+    metric: "euclidean"
+    algorithm: "auto"
+    leaf_size: 30
+    p: None
+    n_jobs: -1
+    
+  hierarchical:
+    n_clusters: 5
+    affinity: "euclidean"
+    linkage: "ward"
+    distance_threshold: None
+
+# Classification models configuration
+classification:
+  random_forest:
+    n_estimators: 100
+    max_depth: 10
+    min_samples_split: 2
+    min_samples_leaf: 1
+    max_features: "sqrt"
+    random_state: 42
+    n_jobs: -1
+    verbose: 0
+    
+  xgboost:
+    n_estimators: 100
+    max_depth: 6
+    learning_rate: 0.1
+    subsample: 1.0
+    colsample_bytree: 1.0
+    random_state: 42
+    n_jobs: -1
+    verbosity: 1
+    
+  logistic_regression:
+    penalty: "l2"
+    C: 1.0
+    random_state: 42
+    solver: "lbfgs"
+    max_iter: 1000
+    multi_class: "auto"
+    
+  svm:
+    C: 1.0
+    kernel: "rbf"
+    gamma: "scale"
+    random_state: 42
+    probability: True
+
+# Anomaly detection models configuration
+anomaly_detection:
+  isolation_forest:
+    contamination: 0.1
+    max_samples: "auto"
+    random_state: 42
+    n_estimators: 100
+    max_features: 1.0
+    
+  local_outlier_factor:
+    n_neighbors: 20
+    contamination: 0.1
+    novelty: False
+    n_jobs: -1
+    
+  one_class_svm:
+    kernel: "rbf"
+    gamma: "scale"
+    nu: 0.1
+    random_state: 42
+    
+  lstm_autoencoder:
+    sequence_length: 24
+    hidden_units: [128, 64, 32]
+    dropout: 0.2
+    epochs: 100
+    batch_size: 32
+    validation_split: 0.2
+    patience: 10
+    verbose: 1
+
+# Time series models configuration
+time_series:
+  arima:
+    order: [5, 1, 5]
+    seasonal_order: [1, 1, 1, 24]
+    trend: "c"
+    enforce_stationarity: True
+    enforce_invertibility: True
+    
+  prophet:
+    growth: "linear"
+    changepoints: 25
+    yearly_seasonality: True
+    weekly_seasonality: True
+    daily_seasonality: True
+    seasonality_mode: "additive"
+    
+  lstm_forecast:
+    sequence_length: 24
+    hidden_units: [128, 64]
+    dropout: 0.2
+    epochs: 100
+    batch_size: 32
+    prediction_horizon: 24
+
+# Model evaluation configuration
+evaluation:
+  metrics:
+    classification:
+      - "accuracy"
+      - "precision"
+      - "recall"
+      - "f1_score"
+      - "roc_auc"
+      - "log_loss"
+      
+    regression:
+      - "mse"
+      - "rmse"
+      - "mae"
+      - "r2_score"
+      - "explained_variance"
+      
+    clustering:
+      - "silhouette_score"
+      - "calinski_harabasz_score"
+      - "davies_bouldin_score"
+      - "adjusted_rand_score"
+      
+    anomaly_detection:
+      - "precision"
+      - "recall"
+      - "f1_score"
+      - "roc_auc"
+      - "confusion_matrix"
+      
+  cross_validation:
+    cv_folds: 5
+    cv_scoring: "accuracy"
+    shuffle: True
+    random_state: 42
+    
+  train_test_split:
+    test_size: 0.2
+    validation_size: 0.2
+    random_state: 42
+    stratify: True
+
+# Feature importance configuration
+feature_importance:
+  methods:
+    - "permutation_importance"
+    - "shap_values"
+    - "gain"
+    - "cover"
+    - "frequency"
+    
+  top_features: 20
+  importance_threshold: 0.01
+  
+# Hyperparameter optimization configuration
+hyperparameter_optimization:
+  method: "grid_search"  # grid_search, random_search, bayesian_search
+  
+  grid_search:
+    cv_folds: 5
+    scoring: "accuracy"
+    n_jobs: -1
+    verbose: 1
+    
+  random_search:
+    n_iter: 100
+    cv_folds: 5
+    scoring: "accuracy"
+    n_jobs: -1
+    verbose: 1
+    random_state: 42
+    
+  bayesian_search:
+    n_iter: 100
+    cv_folds: 5
+    scoring: "accuracy"
+    n_jobs: -1
+    verbose: 1
+    random_state: 42
+
+# Model persistence configuration
+persistence:
+  save_format: "joblib"  # joblib, pickle, onnx
+  compression: True
+  compression_level: 3
+  
+  version_control:
+    save_versions: True
+    max_versions: 5
+    version_prefix: "v"
+    
+  backup:
+    enabled: True
+    backup_interval: 24  # hours
+    max_backups: 10
+
+# Model monitoring configuration
+monitoring:
+  drift_detection:
+    enabled: True
+    drift_threshold: 0.1
+    window_size: 1000
+    statistical_test: "ks_test"
+    
+  performance_tracking:
+    enabled: True
+    metrics: ["accuracy", "precision", "recall", "f1_score"]
+    tracking_interval: 1  # hours
+    
+  data_quality:
+    enabled: True
+    checks: ["completeness", "consistency", "validity"]
+    alert_threshold: 0.05
+
+# Ensemble configuration
+ensemble:
+  enabled: True
+  methods:
+    - "voting"
+    - "stacking"
+    - "blending"
+    
+  voting:
+    voting_type: "soft"  # soft, hard
+    weights: None
+    
+  stacking:
+    final_estimator: "logistic_regression"
+    cv_folds: 5
+    passthrough: False
+    
+  blending:
+    test_size: 0.2
+    random_state: 42
+
+# Model explainability configuration
+explainability:
+  global_explanation:
+    methods: ["shap", "lime", "permutation"]
+    background_samples: 100
+    
+  local_explanation:
+    methods: ["lime", "shap"]
+    num_features: 10
+    
+  visualization:
+    plot_importance: True
+    plot_confusion_matrix: True
+    plot_roc_curve: True
+    plot_learning_curve: True
+    plot_calibration_curve: True

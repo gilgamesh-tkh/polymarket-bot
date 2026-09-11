@@ -1,0 +1,295 @@
+# Main configuration for Polymarket Smart Money Detection
+
+# Application settings
+app:
+  name: "Polymarket Smart Money Detection"
+  version: "1.0.0"
+  debug: false
+  log_level: "INFO"
+  environment: "development"  # development, testing, production
+
+# Database configuration
+database:
+  type: "duckdb"  # duckdb, postgresql
+  duckdb:
+    path: "data/polymarket_data.duckdb"
+    read_only: false
+    connection_timeout: 30
+  postgresql:
+    host: "localhost"
+    port: 5432
+    database: "polymarket_analysis"
+    username: "polymarket_user"
+    password: "${POSTGRES_PASSWORD}"
+    pool_size: 10
+    max_overflow: 20
+
+# Data collection configuration
+data_collection:
+  # warproxxx/poly_data settings
+  poly_data:
+    version: "2.0.0"
+    github_repo: "https://github.com/warproxxx/poly_data"
+    clone_path: "external/poly_data"
+    
+  # HyperSync configuration
+  hypersync:
+    endpoint: "https://eth-hypersync-mainnet.example.com"  # Replace with actual endpoint
+    batch_size: 100000
+    max_retries: 3
+    timeout: 300
+    rate_limit: 100  # requests per minute
+    
+  # CLOB API configuration
+  clob_api:
+    base_url: "https://clob.polymarket.com"
+    timeout: 30
+    max_retries: 3
+    rate_limit: 1000  # requests per minute
+    
+  # Data collection settings
+  collection:
+    start_date: "2022-01-01"
+    end_date: "2026-12-31"
+    batch_size: 10000
+    parallel_workers: 4
+    validation_level: "strict"  # basic, strict, paranoid
+
+# Feature engineering configuration
+feature_engineering:
+  # Wallet features
+  wallet_features:
+    min_trades: 100
+    min_volume: 1000  # USDC
+    time_window_days: 30
+    
+  # Market features
+  market_features:
+    min_liquidity: 1000  # USDC
+    min_volume_24h: 5000  # USDC
+    
+  # Network features
+  network_features:
+    min_connections: 5
+    clustering_threshold: 0.5
+    community_detection_algorithm: "louvain"
+    
+  # Time series features
+  time_series:
+    window_size: 24  # hours
+    prediction_horizon: 24  # hours
+    frequency: "1H"  # 1 hour
+
+# Machine learning configuration
+ml_models:
+  # Clustering models
+  clustering:
+    kmeans:
+      n_clusters: 5
+      random_state: 42
+      max_iter: 300
+      n_init: 10
+      
+    dbscan:
+      eps: 0.5
+      min_samples: 10
+      metric: "euclidean"
+      
+  # Classification models
+  classification:
+    random_forest:
+      n_estimators: 100
+      max_depth: 10
+      random_state: 42
+      n_jobs: -1
+      
+    xgboost:
+      n_estimators: 100
+      max_depth: 6
+      learning_rate: 0.1
+      random_state: 42
+      n_jobs: -1
+      
+  # Anomaly detection
+  anomaly_detection:
+    isolation_forest:
+      contamination: 0.1
+      random_state: 42
+      
+    lstm:
+      sequence_length: 24
+      hidden_units: 128
+      dropout: 0.2
+      epochs: 100
+      batch_size: 32
+      
+    arima:
+      order: [5, 1, 5]
+      seasonal_order: [1, 1, 1, 24]
+      
+  # Model evaluation
+  evaluation:
+    test_size: 0.2
+    validation_size: 0.2
+    cross_validation_folds: 5
+    random_state: 42
+
+# Network analysis configuration
+network_analysis:
+  # Graph construction
+  graph:
+    min_weight: 10  # minimum transaction weight
+    time_window_days: 30
+    directed: true
+    
+  # Community detection
+  communities:
+    algorithms: ["louvain", "leiden", "label_propagation"]
+    resolution: 1.0
+    random_state: 42
+    
+  # Centrality measures
+  centrality:
+    measures: ["degree", "betweenness", "closeness", "eigenvector"]
+    normalized: true
+
+# Dashboard configuration
+dashboard:
+  streamlit:
+    port: 8501
+    host: "localhost"
+    debug: false
+    server_address: "localhost"
+    server_port: 8501
+    enable_caching: true
+    max_message_size: 1000
+    
+  # Real-time updates
+  real_time:
+    update_interval: 60  # seconds
+    max_data_points: 1000
+    auto_refresh: true
+    
+  # Visualizations
+  visualizations:
+    chart_types: ["line", "scatter", "bar", "heatmap", "network"]
+    color_scheme: "viridis"
+    figure_size: [12, 8]
+    dpi: 100
+
+# API configuration
+api:
+  fastapi:
+    host: "0.0.0.0"
+    port: 8000
+    debug: false
+    cors_origins: ["*"]
+    api_key_header: "X-API-Key"
+    
+  # Rate limiting
+  rate_limit:
+    requests_per_minute: 100
+    requests_per_hour: 1000
+    
+  # Authentication
+  authentication:
+    enabled: false
+    jwt_secret: "${JWT_SECRET}"
+    jwt_algorithm: "HS256"
+    jwt_expiration: 3600  # seconds
+
+# Monitoring and logging
+monitoring:
+  logging:
+    level: "INFO"
+    format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+    file_path: "logs/app.log"
+    max_file_size: "10MB"
+    backup_count: 5
+    
+  # Metrics
+  metrics:
+    enabled: true
+    prometheus_port: 9090
+    collect_interval: 30  # seconds
+    
+  # Health checks
+  health:
+    enabled: true
+    check_interval: 60  # seconds
+    timeout: 10  # seconds
+
+# Performance optimization
+performance:
+  # Data processing
+  data_processing:
+    chunk_size: 10000
+    parallel_processing: true
+    max_workers: 4
+    
+  # Memory management
+  memory:
+    max_memory_gb: 16
+    garbage_collection: true
+    cache_size: "1GB"
+    
+  # Database optimization
+  database:
+    query_timeout: 300  # seconds
+    connection_pool_size: 10
+    index_optimization: true
+
+# Security settings
+security:
+  # Data privacy
+  privacy:
+    anonymize_wallets: true
+    hash_sensitive_data: true
+    encryption_enabled: true
+    
+  # Access control
+  access_control:
+    ip_whitelist: []
+    api_key_required: false
+    rate_limiting_enabled: true
+    
+  # Compliance
+  compliance:
+    gdpr_compliant: true
+    data_retention_days: 365
+
+# Backup and recovery
+backup:
+  enabled: true
+  schedule: "0 2 * * *"  # Daily at 2 AM
+  retention_days: 30
+  locations:
+    - "backups/local"
+    - "backups/cloud"  # if cloud backup enabled
+    
+  # Backup types
+  types:
+    - "database"
+    - "models"
+    - "configurations"
+    - "logs"
+
+# Development settings
+development:
+  testing:
+    enabled: true
+    test_data_path: "tests/test_data"
+    coverage_threshold: 80
+    
+  debugging:
+    enabled: true
+    debug_level: "DEBUG"
+    log_queries: true
+    trace_calls: false
+    
+  # Profiling
+  profiling:
+    enabled: false
+    profile_dir: "profiles"
+    memory_profiling: false
+    cpu_profiling: true

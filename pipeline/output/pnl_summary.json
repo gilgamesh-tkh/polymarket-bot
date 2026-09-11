@@ -1,0 +1,12 @@
+{
+  "n_wallets": 9855,
+  "n_wallets_pos_pnl_m2m": 1928,
+  "pct_pos_m2m": 19.56,
+  "n_wallets_pos_realized": 468,
+  "pct_pos_realized": 4.75,
+  "median_pnl_m2m": -187.11999999999998,
+  "median_roi_m2m": -0.1094182581248126,
+  "median_win_rate": 0.4715773289339438,
+  "pct_roi_gt20": 3.95,
+  "pct_winrate_gt65": 22.7
+}

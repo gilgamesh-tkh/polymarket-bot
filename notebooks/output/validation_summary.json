@@ -1,0 +1,53 @@
+{
+  "quant": {
+    "total_rows": 1028646107,
+    "sampled_rows": 614400,
+    "unique_markets_sampled": 3575,
+    "unique_makers_sampled": 1972,
+    "unique_takers_sampled": 6382,
+    "avg_price": 0.4720494923990886,
+    "min_price": 0.001,
+    "max_price": 0.999,
+    "avg_usd": 303.35104897464686,
+    "est_total_volume": 312040875582.13684,
+    "side_distribution": {
+      "SELL": 55159,
+      "BUY": 56557
+    },
+    "time_start": "2022-11-21 20:49:29",
+    "time_end": "2026-07-20 13:45:45"
+  },
+  "users": {
+    "total_rows": 1639420835,
+    "sampled_rows": 614400,
+    "unique_addresses_sampled": 13640,
+    "unique_markets_sampled": 3575,
+    "avg_price": 0.4720494923990886,
+    "avg_usd": 303.35104897464686,
+    "est_total_volume": 497320030008.1414,
+    "role_distribution": {
+      "maker": 364808,
+      "taker": 249592
+    },
+    "direction_distribution": {
+      "BUY": 462543,
+      "SELL": 151857
+    },
+    "time_start": "2022-11-21 20:49:29",
+    "time_end": "2026-07-20 16:35:09"
+  },
+  "markets": {
+    "total_rows": 1841683,
+    "total_volume": 90257926048.87364,
+    "avg_volume": 49008.393979242705,
+    "closed_count": 1777818,
+    "active_count": 1841683,
+    "neg_risk_count": 327458,
+    "created_start": "2020-10-02 16:10:01+00:00",
+    "created_end": "2026-07-20 14:17:21+00:00"
+  },
+  "join_validation": {
+    "quant_markets_in_markets_pct": 100.0,
+    "users_markets_in_markets_pct": 100.0
+  }
+}

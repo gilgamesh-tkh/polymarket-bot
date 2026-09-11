@@ -1,0 +1,73 @@
+{
+  "quant.parquet": {
+    "num_rows": 1028646107,
+    "num_row_groups": 1027,
+    "num_columns": 13,
+    "columns": [
+      "timestamp",
+      "block_number",
+      "transaction_hash",
+      "log_index",
+      "market_id",
+      "condition_id",
+      "event_id",
+      "price",
+      "usd_amount",
+      "token_amount",
+      "side",
+      "maker",
+      "taker"
+    ],
+    "size_bytes": 36677711488
+  },
+  "users.parquet": {
+    "num_rows": 1639420835,
+    "num_row_groups": 13342,
+    "num_columns": 14,
+    "columns": [
+      "timestamp",
+      "block_number",
+      "transaction_hash",
+      "log_index",
+      "address",
+      "role",
+      "direction",
+      "usd_amount",
+      "token_amount",
+      "price",
+      "market_id",
+      "condition_id",
+      "event_id",
+      "nonusdc_side"
+    ],
+    "size_bytes": 47693586988
+  },
+  "markets.parquet": {
+    "num_rows": 1841683,
+    "num_row_groups": 4,
+    "num_columns": 20,
+    "columns": [
+      "id",
+      "question",
+      "slug",
+      "condition_id",
+      "token1",
+      "token2",
+      "answer1",
+      "answer2",
+      "closed",
+      "active",
+      "archived",
+      "outcome_prices",
+      "volume",
+      "event_id",
+      "event_slug",
+      "event_title",
+      "created_at",
+      "end_date",
+      "updated_at",
+      "neg_risk"
+    ],
+    "size_bytes": 294034916
+  }
+}

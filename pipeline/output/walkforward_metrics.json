@@ -1,0 +1,35 @@
+{
+  "cut": "2025-06-30",
+  "rf": {
+    "auc": 0.696290967226219,
+    "auc_std": 0.10497487774471334,
+    "pr": 0.24901428488686456,
+    "pr_std": 0.10859247629623496,
+    "best_f1": 0.2937062937062937,
+    "n": 738,
+    "n_pos": 46
+  },
+  "xgb": {
+    "auc": 0.6763350826585109,
+    "auc_std": 0.09922774457874073,
+    "pr": 0.25041708008314106,
+    "pr_std": 0.11184739996573465,
+    "best_f1": 0.2882882882882883,
+    "n": 738,
+    "n_pos": 46
+  },
+  "features": [
+    "n_trades",
+    "maker_ratio",
+    "avg_usd_trade",
+    "usd_gross",
+    "n_markets",
+    "n_days",
+    "span_days",
+    "avg_price",
+    "weekend_frac",
+    "frac_buy",
+    "frac_token1",
+    "extremeness"
+  ]
+}

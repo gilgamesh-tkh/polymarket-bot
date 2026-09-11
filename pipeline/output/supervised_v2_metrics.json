@@ -1,0 +1,281 @@
+{
+  "n": 9004,
+  "n_pos": 99,
+  "n_feats": 48,
+  "base_feats": [
+    "n_trades",
+    "maker_ratio",
+    "avg_usd_trade",
+    "usd_gross",
+    "n_markets",
+    "n_markets_resolved",
+    "n_days_active",
+    "span_days",
+    "hhi",
+    "entropy",
+    "avg_price",
+    "vwap"
+  ],
+  "adv_feats": [
+    "weekend_frac",
+    "hour_entropy",
+    "size_cv",
+    "extremeness",
+    "frac_token1",
+    "mkt_vol_med",
+    "mkt_negrisk_share",
+    "mkt_horizon_days_med"
+  ],
+  "abc_feats": [
+    "first_ts",
+    "n_weeks_ratio",
+    "price_range",
+    "entry_timing_s",
+    "time_to_end_s",
+    "dominant_hour_share",
+    "trades_per_market",
+    "roundtrip_share",
+    "side_imbalance",
+    "mkt_impact_avg",
+    "mkt_impact_med",
+    "arbitrage_share",
+    "buy_px_tok1",
+    "sell_px_tok1",
+    "buy_sell_gap_tok1",
+    "buy_px_tok2",
+    "sell_px_tok2",
+    "buy_sell_gap_tok2",
+    "cat_sports_share",
+    "cat_crypto_share",
+    "cat_politics_share"
+  ],
+  "net_feats": [
+    "deg_total",
+    "strength_total",
+    "edges_total",
+    "recurrent_total",
+    "recurrence",
+    "recip",
+    "avg_edge_usd"
+  ],
+  "inter_feats": [],
+  "xgb_best_combo": {
+    "n_estimators": 400,
+    "max_depth": 5,
+    "learning_rate": 0.03,
+    "subsample": 0.8,
+    "colsample_bytree": 0.7,
+    "min_child_weight": 3,
+    "reg_lambda": 2
+  },
+  "xgb": {
+    "auc_mean": 0.9343906143798577,
+    "auc_std": 0.020409811401642573,
+    "pr_mean": 0.2571276163155865,
+    "pr_std": 0.07080210111962097,
+    "best_f1": 0.27807486631016043,
+    "best_thr": 0.11036753747612238
+  },
+  "rf": {
+    "auc_mean": 0.9340004728272113,
+    "auc_std": 0.022090159293684377,
+    "pr_mean": 0.17619765849438307,
+    "pr_std": 0.047587511068788786,
+    "best_f1": 0.25405405405405407,
+    "best_thr": 0.11065478074608527
+  },
+  "importances": [
+    {
+      "feature": "frac_token1",
+      "xgb": 0.10637594759464264
+    },
+    {
+      "feature": "recurrent_total",
+      "xgb": 0.07437442988157272
+    },
+    {
+      "feature": "entropy",
+      "xgb": 0.03972075134515762
+    },
+    {
+      "feature": "deg_total",
+      "xgb": 0.03833451122045517
+    },
+    {
+      "feature": "buy_px_tok1",
+      "xgb": 0.034256428480148315
+    },
+    {
+      "feature": "hhi",
+      "xgb": 0.033934835344552994
+    },
+    {
+      "feature": "size_cv",
+      "xgb": 0.031141329556703568
+    },
+    {
+      "feature": "hour_entropy",
+      "xgb": 0.030971135944128036
+    },
+    {
+      "feature": "price_range",
+      "xgb": 0.02979721501469612
+    },
+    {
+      "feature": "dominant_hour_share",
+      "xgb": 0.027236036956310272
+    },
+    {
+      "feature": "usd_gross",
+      "xgb": 0.02611784264445305
+    },
+    {
+      "feature": "avg_price",
+      "xgb": 0.02603718265891075
+    },
+    {
+      "feature": "arbitrage_share",
+      "xgb": 0.025162043049931526
+    },
+    {
+      "feature": "sell_px_tok1",
+      "xgb": 0.024511966854333878
+    },
+    {
+      "feature": "avg_usd_trade",
+      "xgb": 0.02331928350031376
+    },
+    {
+      "feature": "buy_sell_gap_tok1",
+      "xgb": 0.021255524829030037
+    },
+    {
+      "feature": "roundtrip_share",
+      "xgb": 0.01789379119873047
+    },
+    {
+      "feature": "first_ts",
+      "xgb": 0.0178433395922184
+    },
+    {
+      "feature": "avg_edge_usd",
+      "xgb": 0.01731499657034874
+    },
+    {
+      "feature": "mkt_impact_med",
+      "xgb": 0.017006058245897293
+    },
+    {
+      "feature": "cat_politics_share",
+      "xgb": 0.016025301069021225
+    },
+    {
+      "feature": "edges_total",
+      "xgb": 0.015724865719676018
+    },
+    {
+      "feature": "buy_px_tok2",
+      "xgb": 0.01540085393935442
+    },
+    {
+      "feature": "buy_sell_gap_tok2",
+      "xgb": 0.015244191512465477
+    },
+    {
+      "feature": "n_markets_resolved",
+      "xgb": 0.014671159908175468
+    },
+    {
+      "feature": "strength_total",
+      "xgb": 0.0144861014559865
+    },
+    {
+      "feature": "side_imbalance",
+      "xgb": 0.01440277136862278
+    },
+    {
+      "feature": "time_to_end_s",
+      "xgb": 0.013942915014922619
+    },
+    {
+      "feature": "trades_per_market",
+      "xgb": 0.013835438527166843
+    },
+    {
+      "feature": "mkt_impact_avg",
+      "xgb": 0.013666997663676739
+    },
+    {
+      "feature": "recip",
+      "xgb": 0.013026613742113113
+    },
+    {
+      "feature": "n_days_active",
+      "xgb": 0.012816458940505981
+    },
+    {
+      "feature": "n_markets",
+      "xgb": 0.01263750996440649
+    },
+    {
+      "feature": "extremeness",
+      "xgb": 0.012498882599174976
+    },
+    {
+      "feature": "maker_ratio",
+      "xgb": 0.012473336420953274
+    },
+    {
+      "feature": "sell_px_tok2",
+      "xgb": 0.011988562531769276
+    },
+    {
+      "feature": "cat_crypto_share",
+      "xgb": 0.011777041479945183
+    },
+    {
+      "feature": "recurrence",
+      "xgb": 0.011027936823666096
+    },
+    {
+      "feature": "n_weeks_ratio",
+      "xgb": 0.010928242467343807
+    },
+    {
+      "feature": "entry_timing_s",
+      "xgb": 0.010125762782990932
+    },
+    {
+      "feature": "n_trades",
+      "xgb": 0.0100785493850708
+    },
+    {
+      "feature": "mkt_horizon_days_med",
+      "xgb": 0.010047417134046555
+    },
+    {
+      "feature": "mkt_vol_med",
+      "xgb": 0.009922348894178867
+    },
+    {
+      "feature": "weekend_frac",
+      "xgb": 0.009563366882503033
+    },
+    {
+      "feature": "span_days",
+      "xgb": 0.008136814460158348
+    },
+    {
+      "feature": "vwap",
+      "xgb": 0.008069189265370369
+    },
+    {
+      "feature": "mkt_negrisk_share",
+      "xgb": 0.00790280383080244
+    },
+    {
+      "feature": "cat_sports_share",
+      "xgb": 0.006973917130380869
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "n_wallets": 9004,
+  "km5_silhouette": 0.1500221356391086,
+  "km5_calinski": 1883.652565349534,
+  "dbscan_n_clusters": 13,
+  "dbscan_n_noise": 8456,
+  "dbscan_n_core": 548
+}

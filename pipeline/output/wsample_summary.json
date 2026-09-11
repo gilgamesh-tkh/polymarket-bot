@@ -1,0 +1,26 @@
+{
+  "n_target": 10000,
+  "seed": 42,
+  "n_total_eligible": 365536,
+  "n_sample_effectif": 10000,
+  "alloc": {
+    "High": 1139,
+    "Low": 4621,
+    "Medium": 4240
+  },
+  "repartition": [
+    {
+      "stratum": "High",
+      "n_sample": 1139
+    },
+    {
+      "stratum": "Low",
+      "n_sample": 4621
+    },
+    {
+      "stratum": "Medium",
+      "n_sample": 4240
+    }
+  ],
+  "out": "/media/lrh/theProwler/Project/mem/pipeline/output/wallet_sample.parquet"
+}
