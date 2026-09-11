@@ -333,3 +333,9 @@ poly_data/
 latex/
 PROJECT_STRUCTURE.md
 rapport_avancement-poly_data.md
+.hermes/
+hf_cache/
+.hf_cache/
+docs/
+Dockerfile
+docker-compose.yml
